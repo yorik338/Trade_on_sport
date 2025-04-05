@@ -11,7 +11,7 @@ BOT_TOKEN = "1774436433:AAE5wzqXDRfX91OflpapNXuH_WBrVSeDoUo"
 API_URL = "http://localhost:8000/api/tips"
 API_KEY = "your-client-key"
 USER_CHAT_ID = "1660278061"
-
+USER_CHAT_ID_2 = "320580576"
 bot = Bot(token=BOT_TOKEN, parse_mode=ParseMode.HTML)
 dp = Dispatcher()
 
@@ -95,7 +95,9 @@ async def betting_loop():
             if tips:
                 await bot.send_message(USER_CHAT_ID,
                                        "📢 Сделаны ставки:\n" + format_report())
-        await asyncio.sleep(3600)
+                await bot.send_message(USER_CHAT_ID_2,
+                                       "📢 Сделаны ставки:\n" + format_report())
+        await asyncio.sleep(360)
 
 
 async def main():
